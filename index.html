@@ -25,17 +25,31 @@
                     <input type="text" class="form-control" placeholder="City Name" name="search">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                 </span>
+                <br>
                 <!-- list of cities previously searched -->
-                <div class="searched-cities"></div>
+                <div class="searched-cities card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Spanaway</li>
+                        <li class="list-group-item">Seattle</li>
+                    </ul>
+                </div>
             </aside>
             <div class="main-content-box col-8">
-                <div class="current-day-forecast">
-                <!-- current city and date with icon -->
-                <!-- the info for the current day -->
+                <div class="current-day-forecast card">
+                    <!-- Should initially open to users current city using geolocation and reversegeocoding api. And if that doesnt work, just build it for seattle unless it looks fine blank. -->
+                    <div class="card-body">
+                        <h4 class="card-title">Spanaway (1/27/2021)</h4>
+                        <hr>
+                        <p class="card-text">Temperature: 69.4</p>
+                        <p class="card-text">Humidity: 42%</p>
+                        <p class="card-text">Wind Speed: 4.9 MPH</p>
+                        <p class="card-text">UV Index: icon</p>
+                    </div>
                 </div>
                 <div class="five-day-forecast">
-                    <!-- "5-Day Forecast:" -->
-                    <!-- 5 cards with date, icon, temp, humidity -->
+                    <h4>5-Day Forecast:</h4>
+                    <!-- 5 cards with date, icon, temp, humidity. -->
+                    <div class="five-forecast-cards"></div>
                 </div>
             </div>
         </div>

@@ -11,3 +11,9 @@ header
     padding: 10px;
     background-color: #eee;
 }
+
+.current-day-forecast
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
