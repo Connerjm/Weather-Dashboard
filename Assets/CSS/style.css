@@ -5,3 +5,9 @@ header
     text-align: center;
     color: #fff;
 }
+
+.search-history
+{
+    padding: 10px;
+    background-color: #eee;
+}

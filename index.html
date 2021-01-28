@@ -7,6 +7,7 @@
 
     <!-- Style links. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Assets/CSS/style.css">
 
     <!-- Title of the application. -->
@@ -14,22 +15,28 @@
 </head>
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h2>Weather Dashboard</h2>
     </header>
-    <main>
-        <aside class="search-history">
-            <!-- "Search for a city:" -->
-            <!-- textbox and search button -->
-            <!-- list of cities previously searched -->
-        </aside>
-        <div class="main-content-box">
-            <div class="current-day-forecast">
+    <main class="container-fluid">
+        <div class="row">
+            <aside class="search-history col-4">
+                <h5>Search for a City:</h5>
+                <span class="searchbar input-group">
+                    <input type="text" class="form-control" placeholder="City Name" name="search">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                </span>
+                <!-- list of cities previously searched -->
+                <div class="searched-cities"></div>
+            </aside>
+            <div class="main-content-box col-8">
+                <div class="current-day-forecast">
                 <!-- current city and date with icon -->
                 <!-- the info for the current day -->
-            </div>
-            <div class="five-day-forecast">
-                <!-- "5-Day Forecase:" -->
-                <!-- 5 cards with date, icon, temp, humidity -->
+                </div>
+                <div class="five-day-forecast">
+                    <!-- "5-Day Forecast:" -->
+                    <!-- 5 cards with date, icon, temp, humidity -->
+                </div>
             </div>
         </div>
     </main>
