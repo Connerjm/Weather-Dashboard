@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Style links. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+
+    <!-- Title of the application. -->
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <aside class="search-history">
+            <!-- "Search for a city:" -->
+            <!-- textbox and search button -->
+            <!-- list of cities previously searched -->
+        </aside>
+        <div class="main-content-box">
+            <div class="current-day-forecast">
+                <!-- current city and date with icon -->
+                <!-- the info for the current day -->
+            </div>
+            <div class="five-day-forecast">
+                <!-- "5-Day Forecase:" -->
+                <!-- 5 cards with date, icon, temp, humidity -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Script links. -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="Assets/JS/script.js"></script>
 </body>
 </html>
