@@ -22,6 +22,29 @@ The acceptance criteria is as follows:
 - [ ] When looking at future weather conditions for a given city, the user is presented with a five day forcast displaying date, icon, temperature and humidity.
 - [ ] When clicking a city in the search history, the info for that city is presented again.
 
+Some notes to self:
+
+- What we need from the initial api call
+
+  - main>temp
+  - main>humidity
+  - wind>speed
+  - UV index???
+
+- What we need from the 5day forecast call
+
+  - dt_txt
+  - main>temp
+  - main>humidity
+
+- Make sure to handle errors in the api calls. Use a modal for html.cat images?
+
+- Resource links I need.
+
+  - [Current Weather DOCs](https://openweathermap.org/current)
+  - [5 Day Forecast DOCs](https://openweathermap.org/forecast5)
+  - [Weather Condition Icons](https://openweathermap.org/weather-conditions)
+
 ## Technologies
 
 ## Launch
