@@ -19,32 +19,26 @@ var city = "Spanaway";
 
 function getWeather()
 {
-    var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
-    fetch(url)
-        .then(function (response)
-        {
-            return response.json();
-        })
-        .then(function (data)
-        {
-            console.log(data);
-        });
+    var requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
+
+    $.ajax({
+        url: requesturl,
+        method: "GET",
+    }).then(function (response) {
+        console.log(response);
+    });
 }
 
 function getFiveDay()
 {
-    var url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=imperial`;
-    fetch(url)
-        .then(function (response)
-        {
-            if(response.status !== 200)
-                alert(`Error ${response.status}`);
-            return response.json();
-        })
-        .then(function (data)
-        {
-            console.log(data);
-        });
+    var requesturl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=imperial`;
+
+    $.ajax({
+        url: requesturl,
+        method: "GET",
+    }).then(function (response) {
+        console.log(response);
+    });
 }
 
 //Helper functions
