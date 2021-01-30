@@ -24,9 +24,25 @@ header
     border-radius: 5%;
     padding-left: 10px;
     padding-right: 10px;
+    font-style: normal;
+}
+
+.safe
+{
+    background-color: green;
+    color: white;
+}
+
+.warning
+{
+    background-color: yellow;
+    color: black;
+}
+
+.danger
+{
     background-color: red;
     color: white;
-    font-style: normal;
 }
 
 .future-card
