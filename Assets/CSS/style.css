@@ -32,6 +32,7 @@ header
 .future-card
 {
     float: left;
+    margin-top: 10px;
     margin-right: 10px;
     border-radius: 5px;
     width: min-content;
