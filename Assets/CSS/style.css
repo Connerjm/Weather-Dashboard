@@ -19,6 +19,16 @@ header
     min-height: 205px;
 }
 
+.UVindex
+{
+    border-radius: 5%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: red;
+    color: white;
+    font-style: normal;
+}
+
 .future-card
 {
     float: left;
