@@ -54,3 +54,8 @@ header
 {
     padding: 5px;
 }
+
+.future-card img
+{
+    height: 75px;
+}
