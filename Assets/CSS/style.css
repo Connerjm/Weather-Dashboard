@@ -16,4 +16,30 @@ header
 {
     margin-top: 10px;
     margin-bottom: 10px;
+    min-height: 205px;
+}
+
+.future-card
+{
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: min-content;
+    height: min-content;
+    padding: 5px;
+    padding-right: 10px;
+    background-color: #09f;
+    color: #fff;
+}
+
+.future-card p
+{
+    margin: 0px;
+    font-size: small;
+    white-space: nowrap;
+}
+
+.future-card p, h6, i
+{
+    padding: 5px;
 }
