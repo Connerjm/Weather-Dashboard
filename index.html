@@ -37,7 +37,7 @@
                 <div class="current-day-forecast card">
                     <!-- Should initially open to users current city using geolocation and reversegeocoding api. And if that doesnt work, just build it for seattle unless it looks fine blank. -->
                     <div class="card-body" id="current-forecast">
-                        <h4 class="card-title">Spanaway (1/27/2021)</h4>
+                        <h4 class="card-title"><span>Spanaway (1/27/2021)</span><img src="http://openweathermap.org/img/wn/11d@2x.png" alt="Icon depicting the current weather."></h4>
                         <hr>
                         <p class="card-text">Temperature: <span>82</span>&#8457;</p>
                         <p class="card-text">Humidity: <span>45.2</span>%</p>
@@ -63,6 +63,7 @@
 
     <!-- Script links. -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
     <script src="Assets/JS/script.js"></script>
 </body>
 </html>

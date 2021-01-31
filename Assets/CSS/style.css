@@ -19,6 +19,11 @@ header
     min-height: 205px;
 }
 
+#current-forecast img
+{
+    height: 50px;
+}
+
 .UVindex
 {
     border-radius: 5%;
