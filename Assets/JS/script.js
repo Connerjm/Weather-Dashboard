@@ -20,6 +20,12 @@ var city = "Seattle";//The city to be looked up.
 
 //Main functions
 
+function initialize()
+{
+    getWeather();
+    getFiveDay();
+}
+
 function getWeather()//Gets the current forecast for a given city.
 {
     var requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
@@ -95,8 +101,6 @@ function populateFiveDayForecast(data)
 
 //Testing
 
-getWeather();
-
-getFiveDay();
+initialize();
 
 });
