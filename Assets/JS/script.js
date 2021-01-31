@@ -15,7 +15,7 @@ var futureForecastCardArray = $("#five-forecast-cards");
 
 const API_KEY = "110a9e99060f6e0d6ff7296656c3a744";//API key from Open Weather API.
 
-var DateTime = luxon.DateTime;
+var CurrentDate = luxon.DateTime.local();
 var city = "Seattle";//The city to be looked up.
 
 //Main functions
@@ -40,7 +40,7 @@ function getFiveDay()//Gets the five day forecast for the given city.
         url: requesturl,
         method: "GET",
     }).then(function (response) {
-        console.log(response);//TODO Do something with the response.
+        populateFiveDayForecast(response);
     });
 }
 
@@ -72,7 +72,7 @@ function getUVIndex(lat, lon)
 //Function to fill the current forecast card with data thats recieved.
 function populateCurrentForecast(data)
 {
-    currentForecastCard.children(":nth-child(1)").children("span").text(`${city} (${DateTime.local().toLocaleString(DateTime.DATE_SHORT)})`);
+    currentForecastCard.children(":nth-child(1)").children("span").text(`${city} (${CurrentDate.toLocaleString(CurrentDate.DATE_SHORT)})`);
     currentForecastCard.children(":nth-child(1)").children("img").attr("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
     currentForecastCard.children(":nth-child(3)").children("span").text(data.main.temp);
     currentForecastCard.children(":nth-child(4)").children("span").text(data.main.humidity);
@@ -81,9 +81,22 @@ function populateCurrentForecast(data)
 }
 
 //Function to run a forloop on the future forecast array to set all five with data recieved.
+function populateFiveDayForecast(data)
+{
+    var arrayofdays = [data.list[3], data.list[11], data.list[19], data.list[27], data.list[35]];
+    for (var i = 1; i < arrayofdays.length + 1; i++)
+    {
+        futureForecastCardArray.children(`:nth-child(${i})`).children(".future-date").text(CurrentDate.plus({days: i}).toLocaleString(CurrentDate.DATE_SHORT));
+        futureForecastCardArray.children(`:nth-child(${i})`).children("img").attr("src", `http://openweathermap.org/img/wn/${arrayofdays[i - 1].weather[0].icon}@2x.png`);
+        futureForecastCardArray.children(`:nth-child(${i})`).children(".future-temp").children("span").text(arrayofdays[i - 1].main.temp);
+        futureForecastCardArray.children(`:nth-child(${i})`).children(".future-humidity").children("span").text(arrayofdays[i - 1].main.humidity);
+    }
+}
 
 //Testing
 
 getWeather();
+
+getFiveDay();
 
 });
