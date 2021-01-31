@@ -74,6 +74,13 @@ function getUVIndex(lat, lon)
 }
 
 //Function to get city from search bar and call the two apis and fill elements with response data.
+function renderInformation()
+{
+    city = searchBar.val().charAt(0).toUpperCase() + searchBar.val().substr(1).toLowerCase();
+    searchBar.val("");
+    getWeather();
+    getFiveDay();
+}
 
 //Function to fill the current forecast card with data thats recieved.
 function populateCurrentForecast(data)
@@ -98,6 +105,15 @@ function populateFiveDayForecast(data)
         futureForecastCardArray.children(`:nth-child(${i})`).children(".future-humidity").children("span").text(arrayofdays[i - 1].main.humidity);
     }
 }
+
+//Attaching listeners
+
+searchBar.keydown(function (event)
+{
+    if (event.keyCode === 13)
+        searchButton.click();
+})
+searchButton.on("click", renderInformation);
 
 //Testing
 
