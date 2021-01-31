@@ -46,10 +46,25 @@ function getFiveDay()//Gets the five day forecast for the given city.
 
 //Helper functions
 
-function getUVIndex()//TODO finish this bad boy.
+function getUVIndex(lat, lon)
 {
-    currentForecastCard.children(":nth-child(6)").children("i").text();
-    currentForecastCard.children(":nth-child(6)").children("i").removeClass();
+    var requesturl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${API_KEY}`;
+
+    $.ajax({
+        url: requesturl,
+        method: "GET",
+    }).then(function (response) {
+        var uvnum = response.current.uvi
+        var span = currentForecastCard.children(":nth-child(6)").children("i");
+        span.text(uvnum);
+        span.removeClass();
+        if (uvnum <= 2)
+            span.addClass("UVindex safe");
+        else if (uvnum > 2 && uvnum < 8)
+            span.addClass("UVindex warning");
+        else
+            span.addClass("UVindex danger");
+    });
 }
 
 //Function to get city from search bar and call the two apis and fill elements with response data.
@@ -62,7 +77,7 @@ function populateCurrentForecast(data)
     currentForecastCard.children(":nth-child(3)").children("span").text(data.main.temp);
     currentForecastCard.children(":nth-child(4)").children("span").text(data.main.humidity);
     currentForecastCard.children(":nth-child(5)").children("span").text(data.wind.speed);
-    
+    getUVIndex(data.coord.lat, data.coord.lon);
 }
 
 //Function to run a forloop on the future forecast array to set all five with data recieved.
