@@ -29,6 +29,7 @@ function initialize()
     {
         historyarray = JSON.parse(localStorage.getItem("history"));
         restoreHistory();
+        addToHistory();
     }
     else
     {
@@ -136,7 +137,7 @@ function restoreHistory()
     historyarray.forEach(function (city)
     {
         var newentry = $(`<li class="list-group-item">${city}</li>`)
-        searchHistory.prepend(newentry);
+        searchHistory.append(newentry);
     });
 }
 
