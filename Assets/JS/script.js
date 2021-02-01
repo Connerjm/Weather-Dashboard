@@ -18,6 +18,8 @@ const API_KEY = "110a9e99060f6e0d6ff7296656c3a744";//API key from Open Weather A
 var CurrentDate = luxon.DateTime.local();//Gets the current datetime from luxon.
 var city = "Seattle";//The city to be looked up.
 
+var historyarray;
+
 /* Main functions */
 
 //Function that runs when the application is launched.
@@ -25,13 +27,13 @@ function initialize()
 {
     if (localStorage.getItem("history"))
     {
-        //Restore
+        historyarray = JSON.parse(localStorage.getItem("history"));
+        restoreHistory();
     }
     else
     {
-        //Start new
-        var newentry = $(`<li class="list-group-item">${city}</li>`)
-        searchHistory.append(newentry);
+        historyarray = [];
+        addToHistory();
     }
     getWeather();
     getFiveDay();
@@ -50,6 +52,9 @@ function getWeather()
         },
         error: function (status) {
             alert(`Whoopsies! Error code ${status.responseJSON.cod}, ${status.responseJSON.message}!`);
+            searchHistory.children().first().remove();
+            historyarray.shift();
+            localStorage.setItem("history", JSON.stringify(historyarray));
         }
     });
 }
@@ -97,6 +102,7 @@ function renderInformation()
 {
     city = searchBar.val().charAt(0).toUpperCase() + searchBar.val().substr(1).toLowerCase();
     searchBar.val("");
+    addToHistory();
     getWeather();
     getFiveDay();
 }
@@ -123,6 +129,23 @@ function populateFiveDayForecast(data)
         futureForecastCardArray.children(`:nth-child(${i})`).children(".future-temp").children("span").text(arrayofdays[i - 1].main.temp);
         futureForecastCardArray.children(`:nth-child(${i})`).children(".future-humidity").children("span").text(arrayofdays[i - 1].main.humidity);
     }
+}
+
+function restoreHistory()
+{
+    historyarray.forEach(function (city)
+    {
+        var newentry = $(`<li class="list-group-item">${city}</li>`)
+        searchHistory.prepend(newentry);
+    });
+}
+
+function addToHistory()
+{
+    historyarray.unshift(city);
+    var newentry = $(`<li class="list-group-item">${city}</li>`)
+    searchHistory.prepend(newentry);
+    localStorage.setItem("history", JSON.stringify(historyarray));
 }
 
 /* Attaching listeners */

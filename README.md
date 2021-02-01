@@ -16,7 +16,7 @@ This application is a browser based weather dashboard. Utilizing the OpenWeather
 The acceptance criteria is as follows:
 
 - [x] Upon searching for a city, the user is presented with current and future weather conditions for that city.
-- [ ] Searched cities are added to the search history.
+- [x] Searched cities are added to the search history.
 - [x] When viewing current weather for a given city, the city name, date, icon, temperature, humidity, wind speed and UV index are presented.
 - [x] Upon viewing the UV index, a color that indicates conditions is shown.
 - [x] When looking at future weather conditions for a given city, the user is presented with a five day forcast displaying date, icon, temperature and humidity.
@@ -45,8 +45,9 @@ Deployment of the Application
 
 ## Todos
 
-- [ ] Impliment the search history, saving locally.
-- [ ] Validate User input/Handle error codes from API calls.
+- [x] Impliment the search history, saving locally.
+- [x] Validate User input/Handle error codes from API calls.
+- [ ] Put the error alert in a modal?
 - [ ] Get the users current city and initialize to that location?
 - [ ] Put State abriviations after city names in the history and current forecast card?
 
