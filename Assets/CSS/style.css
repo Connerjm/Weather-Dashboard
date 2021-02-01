@@ -1,3 +1,5 @@
+/* Formatting for the header. */
+
 header
 {
     padding: 5px;
@@ -6,11 +8,15 @@ header
     color: #fff;
 }
 
+/* Formatting for the aside housing the search information. */
+
 .search-history
 {
     padding: 10px;
     background-color: #eee;
 }
+
+/* Formatting for the top half of the main content. Housing current information. */
 
 .current-day-forecast
 {
@@ -49,6 +55,8 @@ header
     background-color: red;
     color: white;
 }
+
+/* Formatting for the bottom half of the main content. Housing future information. */
 
 .future-card
 {

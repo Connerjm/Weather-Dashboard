@@ -21,12 +21,13 @@
         <div class="row">
             <aside class="search-history col-4">
                 <h5>Search for a City:</h5>
+                <!-- Search bar and button. -->
                 <span class="searchbar input-group">
                     <input type="text" class="form-control" id="search-bar" placeholder="City Name" name="search">
                     <button type="submit" class="btn btn-primary" id="search-button"><i class="fa fa-search"></i></button>
                 </span>
                 <br>
-                <!-- list of cities previously searched -->
+                <!-- list of cities previously searched. -->
                 <div class="searched-cities card">
                     <ul class="list-group list-group-flush" id="search-history">
                         <li class="list-group-item">Seattle</li>
@@ -35,6 +36,7 @@
             </aside>
             <div class="main-content-box col-8">
                 <div class="current-day-forecast card">
+                    <!-- Single card with City, date, icon, temp, humidity, wind speed, and uv index. -->
                     <div class="card-body" id="current-forecast">
                         <h4 class="card-title"><span></span><img src="#" alt="Icon depicting the current weather."></h4>
                         <hr>

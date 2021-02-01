@@ -1,6 +1,6 @@
 $(document).ready(function ()
 {
-// DOM elements
+/* DOM elements */
 
 //Search Elements
 var searchBar = $("#search-bar");
@@ -11,22 +11,24 @@ var searchHistory = $("#search-history");
 var currentForecastCard = $("#current-forecast");
 var futureForecastCardArray = $("#five-forecast-cards");
 
-//Variables
+/* Variables */
 
 const API_KEY = "110a9e99060f6e0d6ff7296656c3a744";//API key from Open Weather API.
 
-var CurrentDate = luxon.DateTime.local();
+var CurrentDate = luxon.DateTime.local();//Gets the current datetime from luxon.
 var city = "Seattle";//The city to be looked up.
 
-//Main functions
+/* Main functions */
 
+//Function that runs when the application is launched.
 function initialize()
 {
     getWeather();
     getFiveDay();
 }
 
-function getWeather()//Gets the current forecast for a given city.
+//Gets the current weather information for the given city, and then calls the populate function.
+function getWeather()
 {
     var requesturl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
 
@@ -38,7 +40,8 @@ function getWeather()//Gets the current forecast for a given city.
     });
 }
 
-function getFiveDay()//Gets the five day forecast for the given city.
+//Gets the five day forecast information for the given city, and then calls the populate function.
+function getFiveDay()
 {
     var requesturl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=imperial`;
 
@@ -50,8 +53,9 @@ function getFiveDay()//Gets the five day forecast for the given city.
     });
 }
 
-//Helper functions
+/* Helper functions */
 
+//Gets the UV index by the latitude and longitude. Gets called from the populate function because it can't take a city name so it uses the resulting lat and lon.
 function getUVIndex(lat, lon)
 {
     var requesturl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${API_KEY}`;
@@ -64,7 +68,7 @@ function getUVIndex(lat, lon)
         var span = currentForecastCard.children(":nth-child(6)").children("i");
         span.text(uvnum);
         span.removeClass();
-        if (uvnum <= 2)
+        if (uvnum <= 2)//Sets the proper color class according the the UX index safty.
             span.addClass("UVindex safe");
         else if (uvnum > 2 && uvnum < 8)
             span.addClass("UVindex warning");
@@ -73,7 +77,7 @@ function getUVIndex(lat, lon)
     });
 }
 
-//Function to get city from search bar and call the two apis and fill elements with response data.
+//Function to be called upon searching for a city. It takes the city and gets both the current and five day forecast information and renders it.
 function renderInformation()
 {
     city = searchBar.val().charAt(0).toUpperCase() + searchBar.val().substr(1).toLowerCase();
@@ -106,16 +110,16 @@ function populateFiveDayForecast(data)
     }
 }
 
-//Attaching listeners
+/* Attaching listeners */
 
-searchBar.keydown(function (event)
+searchBar.keydown(function (event)//Little listener to search when hitting enter.
 {
-    if (event.keyCode === 13)
+    if (event.keyCode === 13)//Keycode for enter.
         searchButton.click();
 })
-searchButton.on("click", renderInformation);
+searchButton.on("click", renderInformation);//Renders information for the given city.
 
-//Initializing call
+/* Initializing call */
 
 initialize();
 
