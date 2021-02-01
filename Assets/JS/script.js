@@ -115,7 +115,7 @@ searchBar.keydown(function (event)
 })
 searchButton.on("click", renderInformation);
 
-//Testing
+//Initializing call
 
 initialize();
 
