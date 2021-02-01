@@ -45,8 +45,12 @@ function getWeather()
     $.ajax({
         url: requesturl,
         method: "GET",
-    }).then(function (response) {
-        populateCurrentForecast(response);
+        success: function (response) {
+            populateCurrentForecast(response);
+        },
+        error: function (status) {
+            alert(`Whoopsies! Error code ${status.responseJSON.cod}, ${status.responseJSON.message}!`);
+        }
     });
 }
 
@@ -58,8 +62,9 @@ function getFiveDay()
     $.ajax({
         url: requesturl,
         method: "GET",
-    }).then(function (response) {
-        populateFiveDayForecast(response);
+        success: function (response) {
+            populateFiveDayForecast(response);
+        }
     });
 }
 
