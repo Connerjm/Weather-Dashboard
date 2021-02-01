@@ -23,6 +23,16 @@ var city = "Seattle";//The city to be looked up.
 //Function that runs when the application is launched.
 function initialize()
 {
+    if (localStorage.getItem("history"))
+    {
+        //Restore
+    }
+    else
+    {
+        //Start new
+        var newentry = $(`<li class="list-group-item">${city}</li>`)
+        searchHistory.append(newentry);
+    }
     getWeather();
     getFiveDay();
 }
