@@ -157,6 +157,13 @@ searchBar.keydown(function (event)//Little listener to search when hitting enter
         searchButton.click();
 })
 searchButton.on("click", renderInformation);//Renders information for the given city.
+$(document).on("click", "li", function ()//Allows the user to get information from a city in the search history.
+{
+    city = $(this).text();
+    addToHistory();
+    getWeather();
+    getFiveDay();
+});
 
 /* Initializing call */
 

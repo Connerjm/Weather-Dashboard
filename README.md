@@ -20,7 +20,7 @@ The acceptance criteria is as follows:
 - [x] When viewing current weather for a given city, the city name, date, icon, temperature, humidity, wind speed and UV index are presented.
 - [x] Upon viewing the UV index, a color that indicates conditions is shown.
 - [x] When looking at future weather conditions for a given city, the user is presented with a five day forcast displaying date, icon, temperature and humidity.
-- [ ] When clicking a city in the search history, the info for that city is presented again.
+- [x] When clicking a city in the search history, the info for that city is presented again.
 
 ## Technologies
 
@@ -47,7 +47,8 @@ Deployment of the Application
 
 - [x] Impliment the search history, saving locally.
 - [x] Validate User input/Handle error codes from API calls.
-- [ ] Repopulate the weather cards when clicking a history entry.
+- [x] Repopulate the weather cards when clicking a history entry.
+- [ ] Refactor functions to remove redundent code.
 - [ ] Limit history entries.
 - [ ] Don't add duplicate entries in the history, just move it to the top.
 - [ ] Put the error alert in a modal?
