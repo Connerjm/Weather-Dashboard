@@ -139,8 +139,13 @@ function restoreHistory()
 
 function addToHistory()
 {
+    if (historyarray.length >= 8)
+    {
+        historyarray.pop();
+        searchHistory.children().last().remove();
+    }
     historyarray.unshift(city);
-    var newentry = $(`<li class="list-group-item">${city}</li>`)
+    var newentry = $(`<li class="list-group-item">${city}</li>`);
     searchHistory.prepend(newentry);
     localStorage.setItem("history", JSON.stringify(historyarray));
 }

@@ -49,7 +49,7 @@ Deployment of the Application
 - [x] Validate User input/Handle error codes from API calls.
 - [x] Repopulate the weather cards when clicking a history entry.
 - [x] Refactor functions to remove redundent code. (renderinformation())
-- [ ] Limit history entries.
+- [x] Limit history entries.
 - [ ] Don't add duplicate entries in the history, just move it to the top.
 - [ ] Put the error alert in a modal?
 - [x] Get the users current city and initialize to that location?
@@ -57,4 +57,4 @@ Deployment of the Application
 
 ## Issues
 
-None at present
+1. None at present
