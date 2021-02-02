@@ -32,11 +32,12 @@ The acceptance criteria is as follows:
   - jQuery 3.5.1
   - Luxon js
 - Open Weather API
+- Big Data API for reverse-geocoding
 
 ## Launch
 
-[GitHub Repository](https://github.com/Connerjm/Weather-Dashboard)
-[Deployment](https://connerjm.github.io/Weather-Dashboard/)
+- [GitHub Repository](https://github.com/Connerjm/Weather-Dashboard)
+- [Deployment](https://connerjm.github.io/Weather-Dashboard/)
 
 ## Images
 
