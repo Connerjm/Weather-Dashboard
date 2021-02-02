@@ -41,7 +41,7 @@ The acceptance criteria is as follows:
 ## Images
 
 Deployment of the Application
-![Deployment of the Application](#)
+![Deployment of the Application](Assets/Images/Weather-Dashboard.png)
 
 ## Todos
 
