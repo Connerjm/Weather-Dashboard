@@ -29,15 +29,13 @@ function initialize()
     {
         historyarray = JSON.parse(localStorage.getItem("history"));
         restoreHistory();
-        addToHistory();
     }
     else
     {
         historyarray = [];
-        addToHistory();
     }
-    getWeather();
-    getFiveDay();
+    getUserCity();
+    renderInformation();
 }
 
 //Gets the current weather information for the given city, and then calls the populate function.
@@ -101,8 +99,6 @@ function getUVIndex(lat, lon)
 //Function to be called upon searching for a city. It takes the city and gets both the current and five day forecast information and renders it.
 function renderInformation()
 {
-    city = searchBar.val().charAt(0).toUpperCase() + searchBar.val().substr(1).toLowerCase();
-    searchBar.val("");
     addToHistory();
     getWeather();
     getFiveDay();
@@ -149,6 +145,23 @@ function addToHistory()
     localStorage.setItem("history", JSON.stringify(historyarray));
 }
 
+function getUserCity()
+{
+    navigator.geolocation.getCurrentPosition(function (position)
+    {
+        var requesturl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`;
+        
+        $.ajax({
+            url: requesturl,
+            method: "GET",
+            success: function (response) {
+                city = response.locality;
+                renderInformation();
+            }
+        });
+    });
+}
+
 /* Attaching listeners */
 
 searchBar.keydown(function (event)//Little listener to search when hitting enter.
@@ -156,17 +169,24 @@ searchBar.keydown(function (event)//Little listener to search when hitting enter
     if (event.keyCode === 13)//Keycode for enter.
         searchButton.click();
 })
-searchButton.on("click", renderInformation);//Renders information for the given city.
+
+searchButton.on("click", function ()//Renders information for the given city.
+{
+    city = searchBar.val().charAt(0).toUpperCase() + searchBar.val().substr(1).toLowerCase();
+    searchBar.val("");
+    renderInformation();
+});
+
 $(document).on("click", "li", function ()//Allows the user to get information from a city in the search history.
 {
     city = $(this).text();
-    addToHistory();
-    getWeather();
-    getFiveDay();
+    renderInformation();
 });
 
 /* Initializing call */
 
 initialize();
+
+/* Testing */
 
 });
