@@ -53,7 +53,7 @@ Deployment of the Application
 - [ ] Don't add duplicate entries in the history, just move it to the top.
 - [ ] Put the error alert in a modal?
 - [x] Get the users current city and initialize to that location?
-- [ ] Put State abriviations after city names in the history and current forecast card?
+- [x] Put State abriviations after city names in the ~~history and~~ current forecast card?
 
 ## Issues
 

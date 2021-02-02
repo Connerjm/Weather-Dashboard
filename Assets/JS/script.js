@@ -16,9 +16,9 @@ var futureForecastCardArray = $("#five-forecast-cards");
 const API_KEY = "110a9e99060f6e0d6ff7296656c3a744";//API key from Open Weather API.
 
 var CurrentDate = luxon.DateTime.local();//Gets the current datetime from luxon.
-var city = "Seattle";//The city to be looked up.
+var city = "Seattle";//The default to be looked up.
 
-var historyarray;
+var historyarray;//Array of cities previously searched.
 
 /* Main functions */
 
@@ -99,14 +99,15 @@ function getUVIndex(lat, lon)
 //Function to be called upon searching for a city. It takes the city and gets both the current and five day forecast information and renders it.
 function renderInformation()
 {
-    addToHistory();
     getWeather();
     getFiveDay();
+    addToHistory();
 }
 
 //Function to fill the current forecast card with data thats recieved.
 function populateCurrentForecast(data)
 {
+    city += `, ${data.sys.country}`;
     currentForecastCard.children(":nth-child(1)").children("span").text(`${city} (${CurrentDate.toLocaleString(CurrentDate.DATE_SHORT)})`);
     currentForecastCard.children(":nth-child(1)").children("img").attr("src", `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
     currentForecastCard.children(":nth-child(3)").children("span").text(data.main.temp);
