@@ -50,10 +50,10 @@ Deployment of the Application
 - [x] Repopulate the weather cards when clicking a history entry.
 - [x] Refactor functions to remove redundent code. (renderinformation())
 - [x] Limit history entries.
-- [ ] Don't add duplicate entries in the history, just move it to the top.
+- [ ] Don't add duplicate entries in the history, just move it to the top?
 - [ ] Put the error alert in a modal?
 - [x] Get the users current city and initialize to that location?
-- [x] Put State abriviations after city names in the ~~history and~~ current forecast card?
+- [x] Put ~~state~~ country abbriviations after city names in the ~~history and~~ current forecast card?
 
 ## Issues
 
